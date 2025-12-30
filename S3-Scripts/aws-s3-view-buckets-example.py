@@ -1,5 +1,5 @@
 """ 
-Title: aws-s3-testing.py
+Title: aws-s3-view-buckets-example.py
 Authors: Dean Bunn and Ben Clark
 Last Edit: 2025-12-29
 """
