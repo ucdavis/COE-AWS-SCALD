@@ -12,3 +12,18 @@ body { font-family: 'Lucida Sans Unicode','Lucida Grande', sans-serif; backgroun
 /* ==================== Main Section =========================*/
 .coe-main { min-height: 400px;}
 
+
+/* ==================== Tables ================================*/
+.et-table td,
+.et-table th {
+  color: #002855 !important;
+}
+
+.dt-paging-button,
+.dt-input { 
+  color: #002855 !important; 
+}
+
+
+/* .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th { background-color: #E5E9EF;} */
+

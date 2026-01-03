@@ -19,7 +19,9 @@
 
         <div id="coePage">
 
-            <div class="container-fluid">
+            <!-- Site Navigation Section -->
+
+            <div id="coe-navigation-section" class="container-fluid">
 
                 <div class="row">
 
@@ -48,13 +50,63 @@
             </div>
 
 
-            <div class="container-fluid">
+            <!-- Main Section -->
+
+            <div id="coe-main-section" class="container-fluid">
 
                 <div class="row">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
 
-                        <h3>Hello coders!</h3>
+                        <h3>COE IT Kudos</h3>
+
+                        <br />
+                    
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-10">
+
+                        <div id="dvCOELoadNotice">
+
+                        </div>
+
+
+                        <div id="dvTblKudos" style="display: none;">
+
+                            <table id="tblKudos" class="table table-bordered table-striped table-condensed et-table">
+
+                                <!-- table table-striped table-bordered table-condensed coe-table -->
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">IT Member</th>
+                                        <th class="text-left">Kudo</th>
+                                        <th class="text-left">Submitter</th>
+                                        <th class="text-left">Submitted On</th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th class="text-left">IT Member</th>
+                                        <th class="text-left">Kudo</th>
+                                        <th class="text-left">Submitter</th>
+                                        <th class="text-left">Submitted On</th>
+                                    </tr>
+                                </tfoot>
+
+
+                                <tbody></tbody>
+
+
+                            </table>
+
+                        </div>
+
 
                     </div>
 
@@ -68,7 +120,38 @@
 
             $(document).ready(function() {
 
-                
+                $('#dvCOELoadNotice').html('<br /><p>Pulling data from AWS</p>');
+
+                $.ajax({
+                    url: 'https://5ojr76jj93.execute-api.us-west-2.amazonaws.com/v1/coe-it-kudos',
+                    dataType: "json",
+                    error: function () {
+                        console.log('load failed');
+                        $('#dvCOELoadNotice').html('<br /><p>Load failed</p>');
+                    },
+                    success: function (rdata) {
+
+                        $('#dvCOELoadNotice').html('');
+
+                        $('#dvTblKudos').show();
+
+                        new DataTable('#tblKudos', {
+                            columns: [
+                                { "data": "email_address", "type": "string", "className": "text-left" },
+                                { "data": "kudo", "type": "string", "className": "text-left" },
+                                { "data": "submitter", "type": "string", "className": "text-left" },
+                                { "data": "submitted_on", "type": "string", "className": "text-center" }
+                            ],
+                            data: rdata.data,
+                            bAutoWidth: false,
+                            deferRender: true,
+                            pagingType: 'full_numbers',
+                            order: [3, 'desc']
+                        });
+
+                    }
+
+                });
 
             });
 
