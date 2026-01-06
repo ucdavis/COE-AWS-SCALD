@@ -1,0 +1,27 @@
+{
+    
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "KudoPost",
+    "type" : "object",
+    "required" : [ "submitter", "email_address", "kudo", "submitted_on" ],
+    "properties" : {
+        "submitter": {
+            "type":"string",
+            "format": "email"
+        },
+        "email_address": {
+            "type":"string",
+            "format": "email"
+        },
+        "kudo": {
+            "type":"string",
+            "pattern": "^[^<>\"\\\\]+$"
+        },
+        "submitted_on": {
+            "type":"string",
+            "pattern": "^[^<>\"\\\\]+$"
+        }
+    
+    }
+    
+}

@@ -24,6 +24,7 @@ body { font-family: 'Lucida Sans Unicode','Lucida Grande', sans-serif; backgroun
   color: #002855 !important; 
 }
 
+
 /* ==================== Inputs ================================= */
 .coeInputs { color: #002855 !important;}
-
+.coeDanger { color: #800000 !important;}

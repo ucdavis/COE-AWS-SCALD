@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ENGR-Dev-DB</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <title>ENGR Dev DB</title>
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js" integrity="sha256-9zljDKpE/mQxmaR4V2cGVaQ7arF3CcXxarvgr7Sj8Uc=" crossorigin="anonymous"></script>
-        <link href="https://cdn.datatables.net/2.3.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-        <script src="https://cdn.datatables.net/2.3.6/js/dataTables.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link href="https://cdn.datatables.net/v/bs5/dt-2.3.6/b-3.2.6/datatables.min.css" rel="stylesheet" integrity="sha384-9Nl9YR/s6U4hUly2Ezy10ZqBRpCZELLG0Jiwt2569KYMv87dvkJbEj+e8dlCtHDg" crossorigin="anonymous">
+        <script src="https://cdn.datatables.net/v/bs5/dt-2.3.6/b-3.2.6/datatables.min.js" integrity="sha384-bsGRu2NXKQZ446ZGAMiNbmmPAHs9xGWSCpuuEFCMgzL4WyJJkmG6fSPtaLE323gY" crossorigin="anonymous"></script>
         <link href="./content/coe-scald.css" rel="Stylesheet" type="text/css" />
         <script src="./content/coe-scald.js" type="text/javascript"></script>
         <link rel="icon" type="image/x-icon" href="./content/favicon.ico">
@@ -83,18 +83,18 @@
 
                                 <thead>
                                     <tr>
-                                        <th class="text-left">IT Member</th>
+                                        <th class="text-left">IT Member Email Address</th>
                                         <th class="text-left">Kudo</th>
-                                        <th class="text-left">Submitter</th>
+                                        <th class="text-left">Submitter Email Address</th>
                                         <th class="text-left">Submitted On</th>
                                     </tr>
                                 </thead>
 
                                 <tfoot>
                                     <tr>
-                                        <th class="text-left">IT Member</th>
+                                        <th class="text-left">IT Member Email Address</th>
                                         <th class="text-left">Kudo</th>
-                                        <th class="text-left">Submitter</th>
+                                        <th class="text-left">Submitter Email Address</th>
                                         <th class="text-left">Submitted On</th>
                                     </tr>
                                 </tfoot>
@@ -107,11 +107,15 @@
 
                         </div>
 
-                        <br />
+                        
                         <br />
 
                         <button type="button" class="btn btn-outline-secondary coeInputs" data-bs-toggle="modal" data-bs-target="#mdlKudo">Create Kudo</button>
-  
+
+                        <input type="hidden" id="rdmKudo1" name="rdmKudo1" value="NnmgAxN55Q6K9tog">
+                        <input type="hidden" id="rdmKudo2" name="rdmKudo2" value="rwLHi9jy1TArck">
+                        <input type="hidden" id="rdmKudo3" name="rdmKudo3" value="Vdx7hoa3Dj">
+                        
                     </div>
 
                 </div>
@@ -124,15 +128,24 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                            <h4 class="modal-title">Submit Kudo</h4>
+                            <h4 class="modal-title coeInputs">Submit Kudo</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Send a COE tech a kudo</p>
+                        <p class="coeInputs">Your Email Address:</p>
+                        <input type="text" id="tbSubmitter" name="tbSubmitter" class="form-control coeInputs" maxlength="50">
+                        <br />
+                        <p class="coeInputs">COE IT Tech's Email Address:</p>
+                        <input type="text" id="tbEmailAddress" name="tbEmailAddress" class="form-control coeInputs" maxlength="50">
+                        <br />
+                        <p class="coeInputs">Kudo:</p>
+                        <input type="text" id="tbKudo" name="tbKudo" class="form-control coeInputs" maxlength="200">
+                        <br />
+                        <div id="dvErrorMsg" class="coeDanger"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary coeInputs" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-secondary coeInputs">Submit</button>
+                        <button type="button" id="btnSubmitKudo" class="btn btn-outline-secondary coeInputs">Submit</button>
                     </div>
                 </div>
             </div>
@@ -178,6 +191,48 @@
 
                     }
 
+                });
+
+                //Kudo Submission Function
+                $('#btnSubmitKudo').on("click", function () {
+
+                    //Var for Kudo Random
+                    const kdoRandom = $('#rdmKudo1').val() + $('#rdmKudo2').val() + $('#rdmKudo3').val();
+
+                    //Var for Constructing Submission Time
+                    const crnDate = new Date();
+                    const crnTmStmp = crnDate.getFullYear() + "-" +
+                                      String(crnDate.getMonth() + 1).padStart(2, '0') + "-" +
+                                      String(crnDate.getDate()).padStart(2, '0') + " " +
+                                      String(crnDate.getHours()).padStart(2, '0') + ":" +
+                                      String(crnDate.getMinutes()).padStart(2, '0') + ":" +
+                                      String(crnDate.getSeconds()).padStart(2, '0');
+
+                    //Var for Kudo Payload
+                    const kudoload = {
+                        submitter: $('#tbSubmitter').val(),
+                        email_address: $('#tbEmailAddress').val(),
+                        kudo: $('#tbKudo').val(),
+                        submitted_on: crnTmStmp
+                    };
+
+                    //Call to Kudo API EndPoint
+                    $.ajax({
+                        url: 'https://5ojr76jj93.execute-api.us-west-2.amazonaws.com/v1/coe-it-kudos',
+                        method: 'Post',
+                        data: JSON.stringify(kudoload),
+                        contentType: 'application/json',
+                        headers: {'x-api-key':kdoRandom},
+                        error: function () { 
+                            $('#dvErrorMsg').html('An error occured during submission. Check submitted inputs.');
+                        },
+                        success: function (rtnData){
+                            //Reload the page upon successful submission
+                            location.reload();
+                        }
+
+                    });
+                    
                 });
 
             });
