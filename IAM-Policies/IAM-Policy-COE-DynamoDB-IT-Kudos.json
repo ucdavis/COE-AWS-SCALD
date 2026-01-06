@@ -11,8 +11,8 @@
                 "dynamodb:PutItem"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-west-2:660312314910:table/COE-IT-Kudos",
-                "arn:aws:dynamodb:us-west-2:660312314910:table/COE-IT-Kudos/index/*"
+                "arn:aws:dynamodb:us-west-2:<account-number>:table/COE-IT-Kudos",
+                "arn:aws:dynamodb:us-west-2:<account-number>:table/COE-IT-Kudos/index/*"
             ]
         }
     ]

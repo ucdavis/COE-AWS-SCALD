@@ -31,13 +31,13 @@ aws s3 ls
 aws s3 ls s3://engr-dev-db/
 
 # Upload a Single File to the Bucket
-aws s3 cp c:\path\to\local\ENGR-Dev-DB\index.html s3://engr-dev-db
+aws s3 cp c:\path\to\local\Website-Demo\index.html s3://engr-dev-db
 
 # Sync a Folder to a Bucket (Will Remove s3 Files Not Found in Local Folder)
-aws s3 sync c:\path\to\local\ENGR-Dev-DB s3://engr-dev-db --delete 
+aws s3 sync c:\path\to\local\Website-Demo s3://engr-dev-db --delete 
 
 # Do a Dry Run of Sync'n a Folder to a Bucket
-aws s3 sync c:\path\to\local\ENGR-Dev-DB s3://engr-dev-db --delete --dryrun
+aws s3 sync c:\path\to\local\Website-Demo s3://engr-dev-db --delete --dryrun
 
 
 
